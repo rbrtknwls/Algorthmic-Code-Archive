@@ -124,7 +124,7 @@ int main()
             plen[x] = smallestn;
         }
 
-        fout << name +","+ school +"," +plen[0] +","+ plen[1] +",\n";
+        fout << name +","+ school +"," +plen[(x+1)%2] +","+ plen[x] +",\n";
 
     }
     int st = 0;
