@@ -137,7 +137,58 @@ int main()
         }
 
     }
+    printf("%d %d %d %d\n", count[0], count[1], count[2], count[3]);
+    fin.close();
+    fin.clear();
+    fin.open("BH.csv", ios::in);
+    school = "Branksome Hall";
+    string lname;
+    pos = 0;
+    while (getline(fin, line)){
+        pos++;
+        if (pos > 2) {
+            choices[0] = false;
+            choices[1] = false;
+            choices[2] = false;
+            choices[3] = false;
+            for (int i = 0; i < 4; i++){
+                string token = line.substr(0, line.find(","));
+
+                line.erase(0, line.find(",") + 1);
+
+
+                if (i == 0){
+                    lname = token;
+
+                }
+                if (i == 1){
+                    name = token +" "+ lname;
+                }
+                if (i == 2 || i == 3){
+                    if (token == "Space vs Climate" || token == "Space vs Climate Change"){
+                        choices[0] = true;
+                        count[0]++;
+                    }
+                    if (token == "Immigration"){
+                        choices[1] = true;
+                        count[1]++;
+                    }
+                    if (token == "Education vs Entrepreneurship" || token == "Education vs Entrepeneurship"){
+                        choices[2] = true;
+                        count[2]++;
+                    }
+                    if (token == "Spread vs Satire"){
+                        choices[3] = true;
+                        count[3]++;
+                    }
+                }
+            }
+            fout << name +","+ school +","+ (choices[0]?"true":"false")+","+ (choices[1]?"true":"false") +","+ (choices[2]?"true":"false") +","+ (choices[3]?"true":"false") +",\n";
+        }
+
+    }
     printf("%d %d %d %d", count[0], count[1], count[2], count[3]);
+
 
 
     return 0;
