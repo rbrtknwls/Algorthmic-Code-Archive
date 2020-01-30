@@ -99,7 +99,7 @@ int main()
 
 
 
-        if (ra(first,plen[x])-50 < small){
+        if (ra(first,plen[x])-20 < small){
             first[plen[x]]= first[plen[x]]+1;
         }else{
             first[smallestn]= first[smallestn]+1;
@@ -116,7 +116,7 @@ int main()
                 smallestn = key;
             }
         }
-        if (ra(second,plen[x])-50 < small){
+        if (ra(second,plen[x])-30 < small){
             second[plen[x]]= second[plen[x]]+1;
 
         }else{
