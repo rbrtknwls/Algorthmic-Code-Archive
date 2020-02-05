@@ -9,8 +9,8 @@ int main()
 {
     fstream fin, fout;
 
-    fin.open("res.csv", ios::in);
-
+    fin.open("ucc.csv", ios::in);
+    fout.open("students.csv", ios:: out);
     string line;
 
 
@@ -22,10 +22,13 @@ int main()
 
             line.erase(0, line.find(",") + 1);
             if (i == 0){
-                cout << token + " ";
+                fout << token + ",";
+            }
+            if (i == 1){
+                fout << token + ",";
             }
             if (i == 5){
-                cout << token << endl;
+                fout << token << ",\n";
             }
         }
 
